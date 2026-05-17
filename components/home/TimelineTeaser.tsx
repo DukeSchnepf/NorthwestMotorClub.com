@@ -15,7 +15,7 @@ export default function TimelineTeaser() {
         <div className="mb-12 flex items-end justify-between gap-6">
           <SectionHeading supertitle="Since the first lot" title="History" />
           <Link
-            href="/#timeline"
+            href="/history"
             className="hidden shrink-0 font-mono text-xs uppercase tracking-[0.2em] text-lime transition-colors duration-200 hover:text-fg sm:inline"
           >
             Explore our history →

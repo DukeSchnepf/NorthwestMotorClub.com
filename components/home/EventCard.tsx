@@ -31,7 +31,7 @@ export default function EventCard({ event }: { event: EventMeta }) {
 
   return (
     <Link
-      href="/#events"
+      href={`/events/${event.slug}`}
       className="group relative block overflow-hidden border border-line bg-raised"
     >
       <span className="absolute left-0 top-0 z-20 h-full w-px origin-top scale-y-0 bg-lime transition-transform duration-300 ease-exit group-hover:scale-y-100" />

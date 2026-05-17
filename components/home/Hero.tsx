@@ -71,13 +71,13 @@ export default function Hero() {
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link
-            href="/#join"
+            href="/join"
             className="rounded-full bg-lime px-7 py-3.5 font-mono text-sm font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-200 ease-exit hover:scale-105"
           >
             Join the Club
           </Link>
           <Link
-            href="/#events"
+            href="/events"
             className="rounded-full border border-fog/60 px-7 py-3.5 font-mono text-sm uppercase tracking-[0.15em] text-fg transition-colors duration-200 ease-exit hover:border-lime hover:text-lime"
           >
             Upcoming Drives

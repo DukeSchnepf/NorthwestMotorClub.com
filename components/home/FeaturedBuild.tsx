@@ -11,7 +11,7 @@ const build = {
   quote: "Channeled, chopped, and still daily-able. That’s the whole point.",
   image: "/media/featured/hotrod-31.jpg",
   alt: "Channeled black 1931 hot-rod sedan at a golden-hour Pacific Northwest car show",
-  href: "/#featured",
+  href: "/members/hot-rod-31",
 };
 
 export default function FeaturedBuild() {
