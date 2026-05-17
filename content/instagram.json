@@ -1,0 +1,14 @@
+{
+  "_note": "Fallback tiles — no Instagram Basic Display token yet. Replace with live API (ISR 6h) once Duke generates a token. Tiles link to the @nwmotorclub profile.",
+  "profile": "https://instagram.com/nwmotorclub",
+  "tiles": [
+    { "src": "/media/hero/hero-poster.jpg", "alt": "NWMC fleet arced across a Bellevue parking-garage rooftop under PNW overcast" },
+    { "src": "/media/gallery/lancia-badge.jpg", "alt": "Macro detail of a chrome Lancia grille badge beaded with rain" },
+    { "src": "/media/events/meet-dusk.jpg", "alt": "Dusk meet with burnout smoke and a pink Cascade sunset" },
+    { "src": "/media/featured/hotrod-31.jpg", "alt": "Channeled 1931 hot-rod sedan at a golden-hour show" },
+    { "src": "/media/gallery/img8072.jpg", "alt": "Night meet under the lot lights — bagged white FR-S, crowd, light flares" },
+    { "src": "/media/events/burnout-aerial.jpg", "alt": "Top-down drone view of a burnout run down a car-lined gravel lane at dusk" },
+    { "src": "/media/scene/fleet-garage.jpg", "alt": "Wide view of the club parked in an arc on wet rooftop asphalt" },
+    { "src": "/media/og.jpg", "alt": "Northwest Motor Club rooftop meet" }
+  ]
+}
