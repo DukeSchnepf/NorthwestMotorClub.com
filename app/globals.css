@@ -120,6 +120,21 @@
   }
 }
 
+/* Join success checkmark */
+.check-pop {
+  animation: check-pop 0.5s var(--ease-entrance) both;
+}
+@keyframes check-pop {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /* ============================================================
    Reduced motion — global, respected everywhere
    ============================================================ */

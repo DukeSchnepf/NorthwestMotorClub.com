@@ -74,7 +74,7 @@ export default function SiteHeader() {
             ))}
             <li>
               <Link
-                href="/#join"
+                href="/join"
                 className="rounded-full bg-lime px-5 py-2 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-200 ease-exit hover:scale-105"
               >
                 Join
@@ -113,19 +113,17 @@ export default function SiteHeader() {
             id="mobile-menu"
             className="flex flex-col gap-1 border-t border-line bg-base px-6 py-4 md:hidden"
           >
-            {[...navLinks, { label: "Join the Club", href: "/#join" }].map(
-              (l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="block py-3 font-mono text-sm uppercase tracking-[0.2em] text-fg"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ),
-            )}
+            {navLinks.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="block py-3 font-mono text-sm uppercase tracking-[0.2em] text-fg"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         )}
       </nav>

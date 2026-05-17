@@ -19,7 +19,7 @@ export default function UpcomingEvents() {
             title="Upcoming"
           />
           <Link
-            href="/#events"
+            href="/events"
             className="hidden shrink-0 font-mono text-xs uppercase tracking-[0.2em] text-lime transition-colors duration-200 hover:text-fg sm:inline"
           >
             View all events →

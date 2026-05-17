@@ -1,15 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
 import Grain from "@/components/ui/Grain";
 import { site } from "@/lib/site";
 
-// v1 has no membership form (later phase). "Join" routes to Instagram —
-// the real join action today is following / DMing the club.
+/** Recurring footer band — reused at the bottom of every page. */
 export default function CtaBand() {
   return (
     <section
-      id="join"
-      className="relative scroll-mt-28 overflow-hidden border-y border-line"
+      id="join-band"
+      className="relative overflow-hidden border-y border-line"
     >
       <Image
         src="/media/scene/fleet-garage.jpg"
@@ -31,14 +31,12 @@ export default function CtaBand() {
           find the next meet.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <a
-            href={site.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/join"
             className="rounded-full bg-lime px-7 py-3.5 font-mono text-sm font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-200 ease-exit hover:scale-105"
           >
             Join the Club
-          </a>
+          </Link>
           <a
             href={`mailto:${site.email}`}
             className="rounded-full border border-fog/60 px-7 py-3.5 font-mono text-sm uppercase tracking-[0.15em] text-fg transition-colors duration-200 ease-exit hover:border-lime hover:text-lime"
