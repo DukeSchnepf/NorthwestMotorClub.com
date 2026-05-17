@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* ============================================================
+   NWMC DESIGN SYSTEM  —  Pacific Northwest editorial automotive
+   Cascade fog · wet asphalt · evergreen · single confident accent
+   ============================================================ */
+
+@theme {
+  /* ---- Color tokens ---------------------------------------- */
+  --color-base: #0a0e0c; /* near-black, mossy undertone */
+  --color-raised: #141a17;
+  --color-surface: #1c2420;
+  --color-line: #2a332e; /* borders */
+  --color-fg: #e8ede9; /* text.primary */
+  --color-muted: #8a938e; /* text.muted */
+  --color-dim: #5a635e; /* text.dim */
+  --color-lime: #e8ff3a; /* primary accent */
+  --color-rust: #ff7a1a; /* secondary accent */
+  --color-fog: #b8c4bd; /* neutral accent */
+
+  /* ---- Type families --------------------------------------- */
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* ---- Type scale  12/14/16/18/24/32/48/64/96 -------------- */
+  --text-xs: 0.75rem; /* 12 */
+  --text-sm: 0.875rem; /* 14 */
+  --text-base: 1rem; /* 16 */
+  --text-lg: 1.125rem; /* 18 */
+  --text-xl: 1.5rem; /* 24 */
+  --text-2xl: 2rem; /* 32 */
+  --text-3xl: 3rem; /* 48 */
+  --text-4xl: 4rem; /* 64 */
+  --text-5xl: 6rem; /* 96 */
+
+  /* ---- Motion easings -------------------------------------- */
+  --ease-entrance: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-exit: cubic-bezier(0.83, 0, 0.17, 1);
+
+  /* ---- Layout ---------------------------------------------- */
+  --container-content: 90rem; /* 1440px max content width */
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-fg);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-lime);
+    color: var(--color-base);
+  }
+
+  /* Visible focus ring — lime, 2px offset */
+  :focus-visible {
+    outline: 2px solid var(--color-lime);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Display headlines: tight leading + negative tracking */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), Georgia, serif;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+
+/* Skip-to-content link — visible only on focus */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  padding: 0.625rem 1rem;
+  background-color: var(--color-lime);
+  color: var(--color-base);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: var(--text-sm);
+  border-radius: 4px;
+  transition: top 0.2s var(--ease-exit);
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ============================================================
+   Reduced motion — global, respected everywhere
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
