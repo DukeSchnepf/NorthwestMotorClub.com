@@ -17,6 +17,7 @@
   --color-lime: #e8ff3a; /* primary accent */
   --color-rust: #ff7a1a; /* secondary accent */
   --color-fog: #b8c4bd; /* neutral accent */
+  --color-ink: #0a0e0c; /* dark text on lime/fog/rust (text-base collides with the font-size scale) */
 
   /* ---- Type families --------------------------------------- */
   --font-display: var(--font-fraunces);
@@ -49,6 +50,7 @@
   html {
     color-scheme: dark;
     -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 7rem; /* clear the fixed banner + nav on anchor jumps */
   }
 
   body {
@@ -102,6 +104,20 @@
 }
 .skip-link:focus {
   top: 1rem;
+}
+
+/* Hero scroll affordance — grows on mount */
+.hero-scroll-line {
+  transform-origin: top;
+  animation: hero-line 0.9s var(--ease-entrance) both;
+}
+@keyframes hero-line {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
 }
 
 /* ============================================================

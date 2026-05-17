@@ -3,6 +3,9 @@ import { Fraunces } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
+import SmoothScroll from "@/components/motion/SmoothScroll";
+import SiteHeader from "@/components/site/SiteHeader";
+import Footer from "@/components/site/Footer";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -24,6 +27,7 @@ export const metadata: Metadata = {
     title: "Northwest Motor Club",
     description: "A Pacific Northwest car club. Cars, roads, rain.",
     type: "website",
+    images: ["/media/og.jpg"],
   },
 };
 
@@ -44,7 +48,11 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        {children}
+        <SmoothScroll>
+          <SiteHeader />
+          <main id="main">{children}</main>
+          <Footer />
+        </SmoothScroll>
         <Analytics />
       </body>
     </html>

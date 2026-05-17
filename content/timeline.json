@@ -1,0 +1,35 @@
+{
+  "_note": "PLACEHOLDER milestones — Duke to supply 8–15 real entries (year, title, blurb, photo). Mix of NWMC history + PNW car-culture context.",
+  "milestones": [
+    {
+      "year": "2018",
+      "title": "The First Lot",
+      "blurb": "A handful of cars, one Eastside parking lot, and a group chat.",
+      "image": "/media/gallery/img8072.jpg"
+    },
+    {
+      "year": "2020",
+      "title": "Rooftop Era",
+      "blurb": "The garage-roof meets become the club's signature backdrop.",
+      "image": "/media/hero/hero-poster.jpg"
+    },
+    {
+      "year": "2022",
+      "title": "Drives, Not Just Meets",
+      "blurb": "First full-day Cascade run — the club starts chasing roads.",
+      "image": "/media/featured/hotrod-31.jpg"
+    },
+    {
+      "year": "2024",
+      "title": "Hundreds Deep",
+      "blurb": "Late-night sessions outgrow every lot we know.",
+      "image": "/media/events/burnout-aerial.jpg"
+    },
+    {
+      "year": "2026",
+      "title": "Underground",
+      "blurb": "A tighter inner circle forms around the core crew.",
+      "image": "/media/events/meet-dusk.jpg"
+    }
+  ]
+}
