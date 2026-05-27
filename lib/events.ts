@@ -11,6 +11,20 @@ export type EventMeta = {
   status: "upcoming" | "past";
   cover: string;
   blurb: string;
+  /**
+   * Sequential run number across the club's history (e.g. 048). Manually
+   * assigned via MDX frontmatter; surfaces in the DrivesSection featured
+   * card and in marquee/dispatch contexts. Optional.
+   */
+  runNumber?: number;
+  /** Optional start-time string. "7:30 AM" / "9 PM sharp" / etc. */
+  startTime?: string;
+  /** Optional approximate distance in miles. Renders as "156 mi". */
+  distanceMi?: number;
+  /** Optional driver/spot capacity for the meet. */
+  capacity?: number;
+  /** Optional pre-baked forecast string ("58°F · Overcast"). */
+  weather?: string;
 };
 
 const EVENTS_DIR = path.join(process.cwd(), "content", "events");
