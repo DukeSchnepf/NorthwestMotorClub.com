@@ -77,10 +77,7 @@ export default function SiteHeader() {
           {/* Desktop nav */}
           <ul className="hidden items-center justify-center gap-8 md:flex">
             {navLinks.map((l) => {
-              const active =
-                l.href === "/"
-                  ? pathname === "/"
-                  : pathname?.startsWith(l.href);
+              const active = pathname?.startsWith(l.href) ?? false;
               return (
                 <li key={l.href}>
                   <Link
@@ -156,10 +153,7 @@ export default function SiteHeader() {
             className="flex flex-col gap-1 border-t border-line bg-base px-6 py-4 md:hidden"
           >
             {navLinks.map((l) => {
-              const active =
-                l.href === "/"
-                  ? pathname === "/"
-                  : pathname?.startsWith(l.href);
+              const active = pathname?.startsWith(l.href) ?? false;
               return (
                 <li key={l.href}>
                   <Link

@@ -10,6 +10,15 @@ export const metadata: Metadata = {
     "Northwest Motor Club through the years — from the first Eastside lot onward.",
 };
 
+// The home-page Story section includes `placeholder: true` years (2019,
+// 2021, 2023, 2025) that have no photo yet — Duke will fill these in
+// later. The /history page only renders confirmed milestones with photos,
+// so we filter those out here. HistoryTimeline's stricter Milestone type
+// (image: string) stays unchanged; we narrow at the call site.
+const confirmedMilestones = timeline.milestones
+  .filter((m): m is typeof m & { image: string } => Boolean(m.image))
+  .map(({ year, title, blurb, image }) => ({ year, title, blurb, image }));
+
 export default function HistoryPage() {
   return (
     <>
@@ -24,7 +33,7 @@ export default function HistoryPage() {
       </section>
 
       <section className="pb-24 md:pb-32">
-        <HistoryTimeline milestones={timeline.milestones} />
+        <HistoryTimeline milestones={confirmedMilestones} />
       </section>
 
       <CtaBand />
