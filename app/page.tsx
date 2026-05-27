@@ -7,7 +7,7 @@ import DrivesSection from "@/components/home/DrivesSection";
 import CtaBand from "@/components/home/CtaBand";
 
 // Home page composition. Section order tracks the design spec at
-// docs/superpowers/specs/2026-05-26-the-garage-redesign-design.md
+// docs/2026-05-26-redesign-design.md
 //
 //   01  Hero ........... ✅ Phase B   (components/home/Hero.tsx)
 //   02  Story ........... ✅ Phase C.1 (MissionOpen + StoryTimeline + StoryClose)

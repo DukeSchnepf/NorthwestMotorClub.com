@@ -1,7 +1,7 @@
 # NorthwestMotorClub.com — "The Garage" Redesign Design Spec
 
 **Date:** 2026-05-26
-**Status:** Brainstorm complete — awaiting user review before implementation plan.
+**Status:** Design complete — shipped in commits A–D on `main`.
 **Brand stewards:** Duke Schnepf
 
 ---
@@ -345,11 +345,11 @@ These don't block implementation — placeholders + rust "◯ Confirm" badges ar
 Per phase:
 
 - `pnpm dev` → walk every page at 1440 / 768 / 375 widths
-- `Claude_Preview` MCP screenshots at each breakpoint for the home page after each phase
+- Manual screenshots at each breakpoint for the home page after each phase
 - `pnpm build` clean (no new warnings)
 - Lighthouse audit on the home page: LCP < 2.5s, CLS < 0.1, no a11y regressions
-- `/code-review` on each phase's diff at medium effort
-- `/security-review` on Phase E (newsletter form, any new API routes)
+- Code review on each phase's diff before merging
+- Security review on Phase E (newsletter form, any new API routes)
 - Manual `prefers-reduced-motion` test (DevTools rendering emulation) — confirm video pauses, marquee stops, animations skip, cursor returns to system
 - Manual keyboard navigation pass: tab through hero CTAs → header nav → bay grid → drives → footer; confirm focus rings visible throughout
 - Test in Safari (the often-overlooked browser for this aesthetic — backdrop-blur and mix-blend-mode can vary)
@@ -379,16 +379,3 @@ These will get their own specs once the home page is shipped:
 4. **Custom cursor accessibility** — a hidden native cursor breaks expectations for some users. Mitigation: restore native cursor on `:focus-within` and on touch devices.
 5. **Audio autoplay policies** — modern browsers block autoplay-with-sound. Mitigation: audio is opt-in only, no autoplay; toggle persists user choice in localStorage.
 
----
-
-## Reference (preview artifacts)
-
-The visual companion preview files captured each section:
-
-- `01 — Hero v3`: `the-hero-v3.html` (with logos integrated, asset paths fixed)
-- `02 — Story + Timeline`: `the-story-timeline.html`
-- `03 — Bay Grid`: `the-bay-grid.html`
-- `04 — Drives`: `the-drives.html`
-- `05+06 — Shell + CTA + Footer`: `the-shell.html`
-
-All live under `.superpowers/brainstorm/1184-1779844766/content/` for the duration of the brainstorm session, then archive when the brainstorm server stops. They are deliberately gitignored (`.superpowers/` should be added to `.gitignore` before the first commit).
