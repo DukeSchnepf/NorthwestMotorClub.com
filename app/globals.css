@@ -10,6 +10,7 @@
   --color-base: #0a0e0c; /* near-black, mossy undertone */
   --color-raised: #141a17;
   --color-surface: #1c2420;
+  --color-warm: #1a1815; /* warm dark surface — one tier off green-near-black; used for editorial breakouts (story open, drives, manifesto callouts) */
   --color-line: #2a332e; /* borders */
   --color-fg: #e8ede9; /* text.primary */
   --color-muted: #8a938e; /* text.muted */
@@ -132,6 +133,46 @@
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* "Live" status dot — pulsing rust circle.
+   Used in: SiteHeader status pill, Hero dispatch card, Drives "live" indicators,
+   Footer marquee live cues. Default 6px, can be overridden with --status-size. */
+.status-dot {
+  display: inline-block;
+  width: var(--status-size, 6px);
+  height: var(--status-size, 6px);
+  background-color: var(--color-rust);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px var(--color-rust);
+  animation: status-blink 1.6s ease-in-out infinite;
+}
+@keyframes status-blink {
+  0%,
+  60%,
+  100% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.35;
+  }
+}
+
+/* Marquee track — single CSS-driven endless horizontal crawl.
+   The marquee wrapper applies overflow + white-space; the track itself moves.
+   Default duration 40s; pass --marquee-duration to override. */
+.marquee-track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee-crawl var(--marquee-duration, 40s) linear infinite;
+}
+@keyframes marquee-crawl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }
 

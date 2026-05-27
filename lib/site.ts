@@ -10,6 +10,19 @@ export const site = {
   instagram: "https://instagram.com/nwmotorclub",
   instagramHandle: "@nwmotorclub",
   email: "hello@northwestmotorclub.com", // PLACEHOLDER
+  // Brand logo assets — used by SiteHeader (wordmark), Footer (wordmark), favicon (icon).
+  // PLACEHOLDER: request transparent PNG/SVG versions of both to drop the carbon-fiber bg
+  // (current JPGs use mix-blend-mode: screen which can pulse over the hero video).
+  logo: {
+    wordmark: "/media/logo/nwmotorclub-wordmark.jpg",
+    icon: "/media/logo/nwmotorclub-icon.jpg",
+  },
+  // Approximate club geographic centroid (Bellevue / Lincoln Square area).
+  // Used in marquee crawls and the hero dispatch card.
+  coordinates: {
+    latLabel: "N 47°36'",
+    lonLabel: "W 122°20'",
+  },
 } as const;
 
 export type NextMeet = {
@@ -41,12 +54,14 @@ export const manifestoLines = [
 export const manifestoBody =
   "Northwest Motor Club is a Pacific Northwest car community — not a brand, not a feed. We meet where the asphalt is wet and the evergreens close in: garage rooftops, gravel lots, the long way around the mountain. Bring the car you have.";
 
+// Primary nav. Labels follow the redesign metaphor ("Bays" = members, "Drives" = events,
+// "Story" = history); routes are unchanged so existing pages and SEO continue to work.
+// Join lives as the right-side CTA in the header rather than a primary nav item.
 export const navLinks = [
   { label: "About", href: "/about" },
-  { label: "Events", href: "/events" },
-  { label: "Builds", href: "/members" },
-  { label: "History", href: "/history" },
-  { label: "Join", href: "/join" },
+  { label: "Drives", href: "/events" },
+  { label: "Bays", href: "/members" },
+  { label: "Story", href: "/history" },
 ] as const;
 
 // PLACEHOLDER — Duke to confirm/replace founders, bios, vehicles.
