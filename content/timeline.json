@@ -1,35 +1,74 @@
 {
-  "_note": "PLACEHOLDER milestones — Duke to supply 8–15 real entries (year, title, blurb, photo). Mix of NWMC history + PNW car-culture context.",
+  "_note": "Story-section milestones, 2018 → 2026. Placeholder entries are marked with `placeholder: true` — Duke to backfill real copy + photo. 2026 is the current chapter and gets `restart: true` (rust accent + pulsing marker). Add/edit entries to update the home page Story timeline; no code changes required.",
   "milestones": [
     {
       "year": "2018",
+      "chapter": "01",
       "title": "The First Lot",
-      "blurb": "A handful of cars, one Eastside parking lot, and a group chat.",
-      "image": "/media/gallery/img8072.jpg"
+      "blurb": "A handful of cars, one Eastside parking lot, and a group chat full of high-schoolers who'd rather be wrenching than anywhere else. No name yet — just the kids who showed up.",
+      "image": "/media/gallery/img8072.jpg",
+      "imageTag": "eastside · summer"
+    },
+    {
+      "year": "2019",
+      "chapter": "02",
+      "title": "Naming It",
+      "blurb": "PLACEHOLDER — Duke to confirm. Northwest Motor Club becomes a name. First Instagram post. First T-shirt design that never made it past the chat.",
+      "placeholder": true
     },
     {
       "year": "2020",
+      "chapter": "03",
       "title": "Rooftop Era",
-      "blurb": "The garage-roof meets become the club's signature backdrop.",
-      "image": "/media/hero/hero-poster.jpg"
+      "blurb": "The garage-roof meets become the club's signature backdrop. Wet concrete, evergreen horizon, and 12 cars parked in an arc. The shot we'd still send if someone asked who we are.",
+      "image": "/media/hero/hero-poster.jpg",
+      "imageTag": "bellevue rooftop"
+    },
+    {
+      "year": "2021",
+      "chapter": "04",
+      "title": "Slower Year",
+      "blurb": "PLACEHOLDER — Duke to confirm. Smaller meets. Bigger builds. The group chat stays alive even when the parking lots don't.",
+      "placeholder": true
     },
     {
       "year": "2022",
+      "chapter": "05",
       "title": "Drives, Not Just Meets",
-      "blurb": "First full-day Cascade run — the club starts chasing roads.",
-      "image": "/media/featured/hotrod-31.jpg"
+      "blurb": "First full-day Cascade run. The club starts chasing roads, not just backdrops. Stevens Pass → Leavenworth → home with the gauges still hot.",
+      "image": "/media/featured/hotrod-31.jpg",
+      "imageTag": "cascade loop"
+    },
+    {
+      "year": "2023",
+      "chapter": "06",
+      "title": "— TBA",
+      "blurb": "PLACEHOLDER — Duke, what was 2023? Big drive, new member, first event with a name? Even one sentence works.",
+      "placeholder": true
     },
     {
       "year": "2024",
+      "chapter": "07",
       "title": "Hundreds Deep",
-      "blurb": "Late-night sessions outgrow every lot we know.",
-      "image": "/media/events/burnout-aerial.jpg"
+      "blurb": "Late-night sessions outgrow every lot we know. The drone shots start looking less like a meet and more like a movement. Then the calendar gets full of other things.",
+      "image": "/media/events/burnout-aerial.jpg",
+      "imageTag": "aerial · late night"
+    },
+    {
+      "year": "2025",
+      "chapter": "08",
+      "title": "The Quiet Year",
+      "blurb": "PLACEHOLDER — be honest about the gap. Lives changed. The chat slowed. Some of us moved, some of us moved on. The cars stayed in garages.",
+      "placeholder": true
     },
     {
       "year": "2026",
-      "title": "Underground",
-      "blurb": "A tighter inner circle forms around the core crew.",
-      "image": "/media/events/meet-dusk.jpg"
+      "chapter": "09 · CURRENT",
+      "title": "The Restart",
+      "blurb": "Same crew. Same backroads. New chapter. We're picking up where we left off — older now, fewer free weekends, but the same wet asphalt and the same group chat. The club is open again.",
+      "image": "/media/events/meet-dusk.jpg",
+      "imageTag": "restart · 2026",
+      "restart": true
     }
   ]
 }
