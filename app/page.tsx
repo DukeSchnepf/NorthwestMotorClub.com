@@ -2,8 +2,8 @@ import Hero from "@/components/home/Hero";
 import MissionOpen from "@/components/home/MissionOpen";
 import StoryTimeline from "@/components/home/StoryTimeline";
 import StoryClose from "@/components/home/StoryClose";
+import BayGrid from "@/components/home/BayGrid";
 import UpcomingEvents from "@/components/home/UpcomingEvents";
-import FeaturedBuild from "@/components/home/FeaturedBuild";
 import InstagramWall from "@/components/home/InstagramWall";
 import CtaBand from "@/components/home/CtaBand";
 
@@ -12,14 +12,13 @@ import CtaBand from "@/components/home/CtaBand";
 //
 //   01  Hero ........... ✅ Phase B
 //   02  Story ........... ✅ Phase C.1 (MissionOpen + StoryTimeline + StoryClose)
-//   03  The Fleet ....... ⏳ Phase C.2 (BayGrid — to replace FeaturedBuild)
-//   04  Drives .......... ⏳ Phase D   (DrivesSection — to replace UpcomingEvents + InstagramWall)
+//   03  The Fleet ....... ✅ Phase C.2 (BayGrid)
+//   04  Drives .......... ⏳ Phase D   (DrivesSection — to replace UpcomingEvents)
 //   06  CTA ............. ⏳ Phase D   (new CtaBand)
 //
-// Old components still rendering below the new Story group are
-// intentional during the migration — they'll be replaced section by
-// section. Visually you'll see a clean break where the new design ends
-// and the old design begins; that's the in-progress edge.
+// Old components still rendering below the new sections are intentional
+// during the migration — they'll be replaced in Phase D. Visually you'll
+// see a clean break where the new design ends and the old design begins.
 export default function Home() {
   return (
     <>
@@ -31,9 +30,11 @@ export default function Home() {
       <StoryTimeline />
       <StoryClose />
 
-      {/* Still on the old design — replaced in Phases C.2 + D */}
+      {/* Section 03 — The Fleet / Bays (Phase C.2) */}
+      <BayGrid />
+
+      {/* Still on the old design — replaced in Phase D */}
       <UpcomingEvents />
-      <FeaturedBuild />
       <InstagramWall />
       <CtaBand />
     </>
