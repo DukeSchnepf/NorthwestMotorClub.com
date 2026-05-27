@@ -42,3 +42,6 @@ next-env.d.ts
 
 # raw asset staging (originals processed into /public/media)
 /_drive_photos/
+
+# Brainstorm preview artifacts (Superpowers visual companion)
+.superpowers/
