@@ -24,6 +24,9 @@ export default function DrivesSection() {
   }
 
   const [next, ...rest] = events;
+  // The club's run counter. Set `runNumber` in the next drive's frontmatter
+  // and the "Run NNN" badge + archive tally both track it.
+  const nextRun = next.runNumber ?? 48;
 
   return (
     <section
@@ -34,16 +37,16 @@ export default function DrivesSection() {
       <div className="relative mx-auto max-w-content">
         <header className="mb-12 flex flex-wrap items-end justify-between gap-4 border-b border-line pb-6">
           <div>
-            <p className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-lime">
-              <span aria-hidden className="inline-block h-px w-7 bg-lime" />
+            <p className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-moss">
+              <span aria-hidden className="inline-block h-px w-7 bg-moss" />
               Section 04 / Drives
             </p>
             <h2 className="mt-3 font-display text-5xl font-normal leading-[0.92] tracking-[-0.03em] text-fg md:text-6xl lg:text-7xl">
-              Upcoming <span className="italic text-lime">drives</span>.
+              Upcoming <span className="italic text-moss">drives</span>.
             </h2>
           </div>
           <div className="text-right font-mono text-[0.65rem] uppercase tracking-[0.25em] text-muted">
-            <div className="inline-flex items-center gap-2 text-rust">
+            <div className="inline-flex items-center gap-2 text-cedar">
               <span className="status-dot" aria-hidden />
               {events.length} scheduled · next in {daysUntil(next.date)} days
             </div>
@@ -56,7 +59,7 @@ export default function DrivesSection() {
           </div>
         </header>
 
-        <FeaturedDrive e={next} />
+        <FeaturedDrive e={next} runNumber={nextRun} />
 
         {rest.length > 0 && (
           <div className="mt-6 grid gap-5 md:grid-cols-2">
@@ -66,7 +69,7 @@ export default function DrivesSection() {
           </div>
         )}
 
-        <PastDrivesTeaser />
+        <PastDrivesTeaser logged={nextRun - 1} />
       </div>
     </section>
   );
@@ -74,14 +77,20 @@ export default function DrivesSection() {
 
 // -- Pieces --------------------------------------------------------------
 
-function FeaturedDrive({ e }: { e: EventMeta }) {
+function FeaturedDrive({
+  e,
+  runNumber,
+}: {
+  e: EventMeta;
+  runNumber: number;
+}) {
   const date = new Date(e.date);
   const month = date.toLocaleString("en-US", { month: "short" }).toUpperCase();
   const day = date.getDate().toString().padStart(2, "0");
   const year = date.getFullYear();
 
   return (
-    <article className="grid overflow-hidden rounded-md border border-line border-l-[3px] border-l-rust bg-raised md:grid-cols-[1.4fr_1fr]">
+    <article className="grid overflow-hidden rounded-md border border-line border-l-[3px] border-l-cedar bg-raised md:grid-cols-[1.4fr_1fr]">
       <Link
         href={`/events/${e.slug}`}
         className="group relative aspect-[16/9] md:aspect-auto"
@@ -99,8 +108,8 @@ function FeaturedDrive({ e }: { e: EventMeta }) {
           className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-raised"
         />
 
-        <div className="absolute left-6 top-6 border border-rust bg-base px-4 py-2 text-center text-fg">
-          <div className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-rust">
+        <div className="absolute left-6 top-6 border border-cedar bg-base px-4 py-2 text-center text-fg">
+          <div className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-cedar">
             {month}
           </div>
           <div className="mt-1 font-display text-5xl font-normal leading-[0.9] tracking-[-0.04em]">
@@ -111,21 +120,21 @@ function FeaturedDrive({ e }: { e: EventMeta }) {
           </div>
         </div>
 
-        <span className="absolute bottom-6 left-6 bg-rust px-2.5 py-1.5 font-mono text-[0.6rem] font-bold uppercase tracking-[0.3em] text-ink">
+        <span className="absolute bottom-6 left-6 bg-cedar px-2.5 py-1.5 font-mono text-[0.6rem] font-bold uppercase tracking-[0.3em] text-ink">
           ◯ Next Up
         </span>
       </Link>
 
       <div className="flex flex-col justify-between gap-5 p-8 md:p-10">
         <div>
-          <div className="inline-flex items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-rust">
+          <div className="inline-flex items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-cedar">
             <span className="status-dot" aria-hidden />
-            Run {(e.runNumber ?? 48).toString().padStart(3, "0")} · Season opener
+            Run {runNumber.toString().padStart(3, "0")} · Season opener
           </div>
           <h3 className="mt-3 font-display text-3xl font-normal leading-[0.95] tracking-[-0.025em] text-fg md:text-4xl">
             {e.title}
           </h3>
-          <div className="mt-3 font-mono text-xs uppercase tracking-[0.18em] text-lime">
+          <div className="mt-3 font-mono text-xs uppercase tracking-[0.18em] text-moss">
             {e.location}
           </div>
           <p className="mt-4 max-w-[40ch] font-display text-base leading-relaxed text-fog">
@@ -152,13 +161,13 @@ function FeaturedDrive({ e }: { e: EventMeta }) {
           <div className="mt-5 flex flex-wrap gap-2">
             <Link
               href={`/events/${e.slug}`}
-              className="rounded-full bg-lime px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink transition-transform duration-200 ease-exit hover:scale-105"
+              className="rounded-full bg-moss px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink transition-transform duration-200 ease-exit hover:scale-105"
             >
               RSVP for the drive →
             </Link>
             <Link
               href={`/events/${e.slug}`}
-              className="rounded-full border border-fog/60 px-5 py-2.5 font-mono text-xs uppercase tracking-[0.18em] text-fg transition-colors duration-200 ease-exit hover:border-lime hover:text-lime"
+              className="rounded-full border border-fog/60 px-5 py-2.5 font-mono text-xs uppercase tracking-[0.18em] text-fg transition-colors duration-200 ease-exit hover:border-moss hover:text-moss"
             >
               View details
             </Link>
@@ -177,7 +186,7 @@ function CompactDriveCard({ e }: { e: EventMeta }) {
   return (
     <Link
       href={`/events/${e.slug}`}
-      className="group grid overflow-hidden rounded-md border border-line bg-raised transition-all duration-300 hover:-translate-y-1 hover:border-lime md:grid-cols-[200px_1fr]"
+      className="group grid overflow-hidden rounded-md border border-line bg-raised transition-all duration-300 hover:-translate-y-1 hover:border-moss md:grid-cols-[200px_1fr]"
     >
       <div className="relative aspect-[4/3] md:aspect-auto md:h-full">
         <Image
@@ -189,7 +198,7 @@ function CompactDriveCard({ e }: { e: EventMeta }) {
           style={{ filter: "saturate(0.9)" }}
         />
         <div className="absolute bottom-2 left-2 border border-line bg-base/90 px-2 py-1 text-center text-fg">
-          <div className="font-mono text-[0.5rem] uppercase tracking-[0.25em] text-lime">
+          <div className="font-mono text-[0.5rem] uppercase tracking-[0.25em] text-moss">
             {month}
           </div>
           <div className="mt-0.5 font-display text-xl font-normal leading-[1] tracking-[-0.02em]">
@@ -202,7 +211,7 @@ function CompactDriveCard({ e }: { e: EventMeta }) {
           <h4 className="font-display text-2xl leading-tight tracking-[-0.015em] text-fg">
             {e.title}
           </h4>
-          <div className="mt-2 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-lime">
+          <div className="mt-2 font-mono text-[0.6rem] uppercase tracking-[0.18em] text-moss">
             {e.location}
           </div>
           <p className="mt-3 font-display text-sm leading-relaxed text-fog">
@@ -214,29 +223,29 @@ function CompactDriveCard({ e }: { e: EventMeta }) {
             {e.attendees} RSVP&apos;d
             {e.distanceMi ? ` · ${e.distanceMi} mi` : ""}
           </span>
-          <span className="text-lime">RSVP →</span>
+          <span className="text-moss">RSVP →</span>
         </div>
       </div>
     </Link>
   );
 }
 
-function PastDrivesTeaser() {
+function PastDrivesTeaser({ logged }: { logged: number }) {
   return (
     <Link
       href="/events?status=past"
-      className="group mt-10 flex flex-wrap items-center justify-between gap-3 rounded-md border border-line bg-surface p-6 transition-colors duration-300 hover:border-lime md:p-8"
+      className="group mt-10 flex flex-wrap items-center justify-between gap-3 rounded-md border border-line bg-surface p-6 transition-colors duration-300 hover:border-moss md:p-8"
     >
       <div className="flex items-center gap-6">
-        <div className="font-display text-5xl font-normal leading-none tracking-[-0.04em] text-lime md:text-6xl">
-          047
+        <div className="font-display text-5xl font-normal leading-none tracking-[-0.04em] text-moss md:text-6xl">
+          {logged.toString().padStart(3, "0")}
         </div>
         <div className="font-mono text-xs uppercase leading-snug tracking-[0.2em] text-fg">
           <div className="text-[0.55rem] text-muted">— Drives logged</div>
           <div>Recaps, routes, gallery</div>
         </div>
       </div>
-      <div className="font-mono text-xs uppercase tracking-[0.25em] text-lime">
+      <div className="font-mono text-xs uppercase tracking-[0.25em] text-moss">
         The archive
         <span
           aria-hidden
@@ -277,7 +286,7 @@ function Meta({
       </dt>
       <dd
         className={`mt-0.5 font-display text-xl font-normal leading-[1.05] tracking-[-0.01em] ${
-          accent ? "text-lime" : "text-fg"
+          accent ? "text-moss" : "text-fg"
         }`}
       >
         {v}

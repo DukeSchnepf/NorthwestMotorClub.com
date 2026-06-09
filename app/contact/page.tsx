@@ -14,7 +14,7 @@ export default function ContactPage() {
       <section className="mx-auto grid max-w-content gap-16 px-6 pb-24 pt-36 md:grid-cols-2 md:px-16 md:pb-32 md:pt-44">
         <div className="flex flex-col gap-8">
           <div>
-            <p className="font-mono text-sm uppercase tracking-[0.25em] text-lime">
+            <p className="font-mono text-sm uppercase tracking-[0.25em] text-moss">
               Say Hello
             </p>
             <h1 className="mt-4 font-display text-5xl text-fg max-md:text-4xl">
@@ -31,11 +31,11 @@ export default function ContactPage() {
               href={site.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lime hover:text-fg"
+              className="text-moss hover:text-fg"
             >
               {site.instagramHandle} →
             </a>
-            <a href={`mailto:${site.email}`} className="text-lime hover:text-fg">
+            <a href={`mailto:${site.email}`} className="text-moss hover:text-fg">
               {site.email} →
             </a>
           </div>

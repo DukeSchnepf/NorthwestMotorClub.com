@@ -8,9 +8,8 @@ import { site, contactAreas } from "@/lib/site";
  * marquee), then a 5-column main grid (brand / club / drives / connect / the
  * drop), then a baseline credit row.
  *
- * Newsletter form is intentionally static for now — Phase E wires the actual
- * submission handler. The visual + a11y structure is in place so wiring is a
- * one-component swap later.
+ * "The Drop" signup is a mailto link for now — Phase E swaps it for a real
+ * form + server-action submit once a subscribe endpoint exists.
  */
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -43,7 +42,7 @@ export default function Footer() {
             </p>
 
             <div className="mt-6 font-mono text-[0.6rem] uppercase tracking-[0.25em] text-muted">
-              <div className="mb-2 text-[0.55rem] text-lime">— Where we meet</div>
+              <div className="mb-2 text-[0.55rem] text-moss">— Where we meet</div>
               {contactAreas.map((a) => (
                 <div key={a} className="leading-7">
                   {a}
@@ -87,39 +86,21 @@ export default function Footer() {
 
           {/* The Drop (newsletter signup) */}
           <div>
-            <h5 className="mb-3 border-b border-line pb-2 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-lime">
+            <h5 className="mb-3 border-b border-line pb-2 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-moss">
               The Drop
             </h5>
             <p className="mb-4 font-display text-sm italic leading-relaxed text-fog">
               Get the next-meet briefing in your inbox. One email per drive.
               Nothing else.
             </p>
-            {/* Static for now — Phase E will swap this for a real client form
-                with server-action submit. Structure + a11y already correct. */}
-            <form
-              className="flex gap-2"
-              aria-label="Subscribe to The Drop"
-              action="/api/subscribe"
-              method="post"
+            {/* Mailto until Phase E wires a real subscribe endpoint — an
+                email-input form with no backend would silently drop signups. */}
+            <a
+              href={`mailto:${site.email}?subject=Add me to The Drop`}
+              className="inline-flex rounded-sm bg-moss px-4 py-2.5 font-mono text-[0.65rem] font-bold uppercase tracking-[0.2em] text-ink transition-transform duration-150 hover:scale-[1.03]"
             >
-              <label htmlFor="footer-email" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="footer-email"
-                name="email"
-                type="email"
-                placeholder="you@example.com"
-                required
-                className="flex-1 rounded-sm border border-line bg-surface px-3 py-2.5 font-mono text-xs tracking-[0.1em] text-fg outline-none placeholder:text-dim focus:border-lime"
-              />
-              <button
-                type="submit"
-                className="rounded-sm bg-lime px-4 py-2.5 font-mono text-[0.65rem] font-bold uppercase tracking-[0.2em] text-ink transition-transform duration-150 hover:scale-[1.03]"
-              >
-                Subscribe
-              </button>
-            </form>
+              Get on the list →
+            </a>
             <p className="mt-4 flex items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted">
               <span className="status-dot" aria-hidden />
               Or follow on Instagram →{" "}
@@ -127,7 +108,7 @@ export default function Footer() {
                 href={site.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lime hover:underline"
+                className="text-moss hover:underline"
               >
                 {site.instagramHandle}
               </a>
@@ -139,10 +120,10 @@ export default function Footer() {
         <div className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-5 font-mono text-[0.55rem] uppercase tracking-[0.25em] text-dim">
           <div className="text-muted">
             © {site.establishedYear} – {year} · {site.name.toUpperCase()} ·{" "}
-            <span className="text-lime">All rights reserved</span>
+            <span className="text-moss">All rights reserved</span>
           </div>
           <div>
-            Built in the <span className="text-lime">Pacific NW</span> ·{" "}
+            Built in the <span className="text-moss">Pacific NW</span> ·{" "}
             Next.js 16 · Vercel
           </div>
         </div>
@@ -162,7 +143,7 @@ function FooterCol({
 }) {
   return (
     <div>
-      <h5 className="mb-3 border-b border-line pb-2 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-lime">
+      <h5 className="mb-3 border-b border-line pb-2 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-moss">
         {heading}
       </h5>
       <ul className="space-y-2.5">{children}</ul>
@@ -180,7 +161,7 @@ function FooterLink({
   external?: boolean;
 }) {
   const baseClass =
-    "font-mono text-[0.7rem] uppercase tracking-[0.15em] text-fg transition-colors duration-200 hover:text-lime";
+    "font-mono text-[0.7rem] uppercase tracking-[0.15em] text-fg transition-colors duration-200 hover:text-moss";
   if (external) {
     return (
       <li>
@@ -226,5 +207,5 @@ function FooterMarqueeRow() {
 }
 
 function Dot() {
-  return <span className="text-lime">·</span>;
+  return <span className="text-moss">·</span>;
 }

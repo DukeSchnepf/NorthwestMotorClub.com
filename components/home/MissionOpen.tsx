@@ -17,22 +17,22 @@ export default function MissionOpen() {
       aria-label="Our story"
       className="relative border-t border-line bg-base px-6 py-24 md:px-12 md:py-32 lg:px-16"
     >
-      {/* Faint lime radial wash so this section feels distinct from the hero
+      {/* Faint moss radial wash so this section feels distinct from the hero
           but stays on-brand. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 20% 30%, rgba(232,255,58,0.04) 0%, transparent 50%)",
+            "radial-gradient(ellipse at 20% 30%, rgba(167,201,87,0.04) 0%, transparent 50%)",
         }}
       />
 
       <div className="relative mx-auto grid max-w-content gap-12 lg:grid-cols-[1.3fr_1fr]">
         {/* Left column — headline + manifesto */}
         <div>
-          <p className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-lime">
-            <span aria-hidden className="inline-block h-px w-7 bg-lime" />
+          <p className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-moss">
+            <span aria-hidden className="inline-block h-px w-7 bg-moss" />
             Section 02 / Our Story
           </p>
 
@@ -44,9 +44,9 @@ export default function MissionOpen() {
             <br className="hidden md:inline" />
             parking lot.
             <br />
-            <span className="italic text-lime">Eight</span> years on.
+            <span className="italic text-moss">Eight</span> years on.
             <br />
-            <span className="italic text-rust">Same</span> passion.
+            <span className="italic text-cedar">Same</span> passion.
           </h2>
 
           <div className="mt-12 flex flex-col gap-2">
@@ -54,7 +54,7 @@ export default function MissionOpen() {
               <p
                 key={i}
                 className={`font-display text-2xl leading-snug md:text-3xl ${
-                  i === manifestoLines.length - 1 ? "text-lime" : "text-fg"
+                  i === manifestoLines.length - 1 ? "text-moss" : "text-fg"
                 }`}
               >
                 {line}
@@ -69,8 +69,8 @@ export default function MissionOpen() {
             {manifestoBody}
           </p>
 
-          <div className="border border-line border-l-[3px] border-l-rust bg-raised p-6">
-            <p className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-rust">
+          <div className="border border-line border-l-[3px] border-l-cedar bg-raised p-6">
+            <p className="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-cedar">
               — The Restart · 2026
             </p>
             <p className="mt-2 font-display text-2xl leading-tight tracking-tight text-fg">
@@ -82,7 +82,7 @@ export default function MissionOpen() {
           </div>
 
           <div className="border-t border-line pt-6 font-mono text-[0.65rem] uppercase leading-7 tracking-[0.2em] text-muted">
-            <div className="text-[0.55rem] text-lime">— Founders</div>
+            <div className="text-[0.55rem] text-moss">— Founders</div>
             {founders.map((f) => (
               <div key={f.handle}>
                 <span className="text-fg">{f.name}</span> · {f.vehicle}

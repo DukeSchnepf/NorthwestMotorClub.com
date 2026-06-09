@@ -28,20 +28,24 @@ export default function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close the mobile menu when the user navigates.
-  useEffect(() => {
+  // Close the mobile menu when the user navigates — state adjusted during
+  // render (per React's "adjusting state when a prop changes" pattern)
+  // instead of in an effect, so there's no extra commit with a stale menu.
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (pathname !== lastPathname) {
+    setLastPathname(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       {/* Next-meet banner — the club's #1 priority */}
       <Link
         href={nextMeet.href}
-        className="group flex items-center justify-center gap-2 bg-lime px-4 py-2 text-center font-mono text-xs tracking-wider text-ink"
+        className="group flex items-center justify-center gap-2 bg-moss px-4 py-2 text-center font-mono text-xs tracking-wider text-ink"
         aria-label={`Next meet — ${nextMeet.title}: ${meetText()}`}
       >
-        <span className="rounded-sm bg-ink px-2 py-0.5 font-semibold uppercase tracking-[0.3em] text-[0.6rem] text-lime">
+        <span className="rounded-sm bg-ink px-2 py-0.5 font-semibold uppercase tracking-[0.3em] text-[0.6rem] text-moss">
           Next Meet
         </span>
         <span className="uppercase">{meetText()}</span>
@@ -82,7 +86,7 @@ export default function SiteHeader() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className={`relative inline-block py-1 font-mono text-xs uppercase tracking-[0.2em] transition-colors duration-200 hover:text-lime ${
+                    className={`relative inline-block py-1 font-mono text-xs uppercase tracking-[0.2em] transition-colors duration-200 hover:text-moss ${
                       active ? "text-fg" : "text-muted"
                     }`}
                   >
@@ -90,7 +94,7 @@ export default function SiteHeader() {
                     {active && (
                       <span
                         aria-hidden
-                        className="absolute inset-x-0 -bottom-0.5 h-px bg-lime"
+                        className="absolute inset-x-0 -bottom-0.5 h-px bg-moss"
                       />
                     )}
                   </Link>
@@ -113,7 +117,7 @@ export default function SiteHeader() {
             {/* Join CTA */}
             <Link
               href="/join"
-              className="rounded-full bg-lime px-5 py-2 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-200 ease-exit hover:scale-105"
+              className="rounded-full bg-moss px-5 py-2 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-200 ease-exit hover:scale-105"
             >
               Join
             </Link>
@@ -159,7 +163,7 @@ export default function SiteHeader() {
                   <Link
                     href={l.href}
                     className={`block py-3 font-mono text-sm uppercase tracking-[0.2em] ${
-                      active ? "text-lime" : "text-fg"
+                      active ? "text-moss" : "text-fg"
                     }`}
                   >
                     {l.label}
@@ -170,7 +174,7 @@ export default function SiteHeader() {
             <li className="mt-2 border-t border-line pt-3">
               <Link
                 href="/join"
-                className="block py-3 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-lime"
+                className="block py-3 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-moss"
               >
                 Join the Club →
               </Link>

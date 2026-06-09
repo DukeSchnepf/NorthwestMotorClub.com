@@ -36,7 +36,7 @@ export default function JoinForm() {
         role="status"
         className="flex flex-col items-center gap-5 border border-line bg-raised px-8 py-16 text-center"
       >
-        <span className="check-pop flex h-16 w-16 items-center justify-center rounded-full bg-lime text-2xl text-ink">
+        <span className="check-pop flex h-16 w-16 items-center justify-center rounded-full bg-moss text-2xl text-ink">
           ✓
         </span>
         <h2 className="font-display text-3xl text-fg">We&apos;ll be in touch</h2>
@@ -76,7 +76,7 @@ export default function JoinForm() {
                 aria-invalid={!!err}
                 aria-describedby={err ? `${f.name}-error` : undefined}
                 placeholder={f.placeholder}
-                className="border border-line bg-base px-4 py-3 text-fg outline-none placeholder:text-dim focus-visible:border-lime"
+                className="border border-line bg-base px-4 py-3 text-fg outline-none placeholder:text-dim focus-visible:border-moss"
                 {...register(f.name)}
               />
             ) : (
@@ -86,7 +86,7 @@ export default function JoinForm() {
                 aria-invalid={!!err}
                 aria-describedby={err ? `${f.name}-error` : undefined}
                 placeholder={f.placeholder}
-                className="border border-line bg-base px-4 py-3 text-fg outline-none placeholder:text-dim focus-visible:border-lime"
+                className="border border-line bg-base px-4 py-3 text-fg outline-none placeholder:text-dim focus-visible:border-moss"
                 {...register(f.name)}
               />
             )}
@@ -94,7 +94,7 @@ export default function JoinForm() {
               <p
                 id={`${f.name}-error`}
                 role="alert"
-                className="font-mono text-xs text-rust"
+                className="font-mono text-xs text-cedar"
               >
                 {err}
               </p>
@@ -104,7 +104,7 @@ export default function JoinForm() {
       })}
 
       {serverError && (
-        <p role="alert" aria-live="polite" className="font-mono text-xs text-rust">
+        <p role="alert" aria-live="polite" className="font-mono text-xs text-cedar">
           {serverError}
         </p>
       )}
@@ -112,7 +112,7 @@ export default function JoinForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-2 self-start rounded-full bg-lime px-8 py-3.5 font-mono text-sm font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-200 ease-exit hover:scale-105 disabled:opacity-60"
+        className="mt-2 self-start rounded-full bg-moss px-8 py-3.5 font-mono text-sm font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-200 ease-exit hover:scale-105 disabled:opacity-60"
       >
         {isSubmitting ? "Sending…" : "Send it"}
       </button>

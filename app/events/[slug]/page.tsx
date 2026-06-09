@@ -75,7 +75,7 @@ export default async function EventRecap({
         <div className="-mt-24 md:-mt-32">
           <Link
             href="/events"
-            className="font-mono text-xs uppercase tracking-[0.2em] text-lime hover:text-fg"
+            className="font-mono text-xs uppercase tracking-[0.2em] text-moss hover:text-fg"
           >
             ← All events
           </Link>

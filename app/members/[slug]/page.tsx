@@ -81,7 +81,7 @@ export default async function BuildFeature({
         <div className="-mt-20 md:-mt-28">
           <Link
             href="/members"
-            className="font-mono text-xs uppercase tracking-[0.2em] text-lime hover:text-fg"
+            className="font-mono text-xs uppercase tracking-[0.2em] text-moss hover:text-fg"
           >
             ← All rides
           </Link>
@@ -89,7 +89,7 @@ export default async function BuildFeature({
 
         <div className="mt-8 grid gap-12 md:grid-cols-[1fr_2fr]">
           <aside className="md:sticky md:top-32 md:self-start">
-            <p className="font-mono text-xs uppercase tracking-wider text-lime">
+            <p className="font-mono text-xs uppercase tracking-wider text-moss">
               {fm.category}
             </p>
             <h1 className="mt-3 font-display text-4xl text-fg">{fm.title}</h1>
@@ -113,7 +113,7 @@ export default async function BuildFeature({
               href={fm.ig}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-block font-mono text-xs uppercase tracking-[0.2em] text-lime hover:text-fg"
+              className="mt-6 inline-block font-mono text-xs uppercase tracking-[0.2em] text-moss hover:text-fg"
             >
               {fm.handle} on Instagram →
             </a>
@@ -124,7 +124,7 @@ export default async function BuildFeature({
 
         {related.length > 0 && (
           <div className="mt-24 border-t border-line pt-12">
-            <p className="mb-8 font-mono text-sm uppercase tracking-[0.25em] text-lime">
+            <p className="mb-8 font-mono text-sm uppercase tracking-[0.25em] text-moss">
               Related rides
             </p>
             <div className="grid gap-6 sm:grid-cols-3">

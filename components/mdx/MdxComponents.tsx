@@ -11,11 +11,11 @@ export const mdxComponents: MDXComponents = {
   ul: (p) => (
     <ul className="mt-5 list-disc space-y-2 pl-5 text-muted" {...p} />
   ),
-  a: (p) => <a className="text-lime underline-offset-4 hover:underline" {...p} />,
+  a: (p) => <a className="text-moss underline-offset-4 hover:underline" {...p} />,
   hr: () => <hr className="my-12 border-line" />,
 
   Pull: ({ children }: { children: React.ReactNode }) => (
-    <blockquote className="my-12 border-l-2 border-lime pl-6 font-display text-2xl italic leading-snug text-fg md:text-3xl">
+    <blockquote className="my-12 border-l-2 border-moss pl-6 font-display text-2xl italic leading-snug text-fg md:text-3xl">
       {children}
     </blockquote>
   ),

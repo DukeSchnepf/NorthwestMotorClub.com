@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 import HeroMarquee from "./HeroMarquee";
 import HeadlightCursor from "./HeadlightCursor";
 import NextBriefing from "./NextBriefing";
@@ -30,14 +31,11 @@ import AudioToggle from "./AudioToggle";
  * HeadlightCursor self-disables on reduced-motion + touch.
  */
 export default function Hero() {
-  const [showVideo, setShowVideo] = useState(false);
+  // Treated as reduced until the browser says otherwise, so SSR + the
+  // hydration pass render only the poster and the video mounts after.
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)", true);
+  const showVideo = !reducedMotion;
   const [videoReady, setVideoReady] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    setShowVideo(true);
-  }, []);
 
   return (
     <section
@@ -121,7 +119,7 @@ export default function Hero() {
       {/* Main content grid */}
       <div className="relative z-[7] mx-auto grid w-full max-w-content grid-cols-1 items-center gap-10 px-6 pb-20 pt-[100px] md:grid-cols-[1fr_360px] md:px-12 lg:gap-12 lg:px-16">
         <div className="max-w-3xl">
-          <p className="mb-6 font-mono text-xs uppercase tracking-[0.4em] text-lime">
+          <p className="mb-6 font-mono text-xs uppercase tracking-[0.4em] text-moss">
             {site.region} · Est. {site.establishedYear}
           </p>
           <img
@@ -135,13 +133,13 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/join"
-              className="rounded-full bg-lime px-7 py-3.5 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-ink transition-transform duration-200 ease-exit hover:scale-105"
+              className="rounded-full bg-moss px-7 py-3.5 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-ink transition-transform duration-200 ease-exit hover:scale-105"
             >
               Join the Club
             </Link>
             <Link
               href="/events"
-              className="rounded-full border border-fog/60 px-7 py-3.5 font-mono text-sm uppercase tracking-[0.18em] text-fg transition-colors duration-200 ease-exit hover:border-lime hover:text-lime"
+              className="rounded-full border border-fog/60 px-7 py-3.5 font-mono text-sm uppercase tracking-[0.18em] text-fg transition-colors duration-200 ease-exit hover:border-moss hover:text-moss"
             >
               Upcoming Drives
             </Link>
@@ -162,7 +160,7 @@ export default function Hero() {
         <span className="font-mono text-[0.55rem] uppercase tracking-[0.3em] text-muted">
           Scroll
         </span>
-        <span className="hero-scroll-line h-12 w-px bg-gradient-to-b from-lime to-transparent" />
+        <span className="hero-scroll-line h-12 w-px bg-gradient-to-b from-moss to-transparent" />
       </div>
     </section>
   );

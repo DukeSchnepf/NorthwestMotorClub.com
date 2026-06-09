@@ -29,7 +29,7 @@ export type MemberMeta = {
   bayNumber?: number;
   /**
    * Featured bay of the week. Exactly one member should have this true;
-   * the BayGrid renders it as a 2×2 cell with the rust accent and the
+   * the BayGrid renders it as a 2×2 cell with the cedar accent and the
    * pull quote rendered prominently. Rotate manually for now (Phase E
    * could automate via cron).
    */

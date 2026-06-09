@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 export default function NotFound() {
   return (
     <section className="mx-auto flex min-h-[70vh] max-w-content flex-col items-center justify-center gap-6 px-6 py-36 text-center md:px-16">
-      <p className="font-mono text-sm uppercase tracking-[0.25em] text-lime">
+      <p className="font-mono text-sm uppercase tracking-[0.25em] text-moss">
         404 · Off the map
       </p>
       <h1 className="font-display text-6xl text-fg max-md:text-4xl">
@@ -17,7 +17,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-2 border border-line px-6 py-3 font-mono text-sm uppercase tracking-[0.2em] text-fg transition-colors hover:border-lime hover:text-lime"
+        className="mt-2 border border-line px-6 py-3 font-mono text-sm uppercase tracking-[0.2em] text-fg transition-colors hover:border-moss hover:text-moss"
       >
         Back to {site.shortName}
       </Link>

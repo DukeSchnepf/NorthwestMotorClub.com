@@ -27,19 +27,19 @@ function Pump({ progress }: { progress: RefObject<number> }) {
       {/* base */}
       <mesh position={[0, 0.1, 0]} castShadow receiveShadow>
         <boxGeometry args={[1.4, 0.2, 1]} />
-        <meshStandardMaterial color="#1c2420" roughness={0.9} />
+        <meshStandardMaterial color="#1b2620" roughness={0.9} />
       </mesh>
       {/* body */}
       <mesh position={[0, 1.3, 0]}>
         <boxGeometry args={[1.1, 2.2, 0.8]} />
-        <meshStandardMaterial color="#2a332e" roughness={0.7} metalness={0.1} />
+        <meshStandardMaterial color="#2b362f" roughness={0.7} metalness={0.1} />
       </mesh>
-      {/* display panel — lime, faintly emissive */}
+      {/* display panel — moss, faintly emissive */}
       <mesh position={[0, 1.8, 0.42]}>
         <boxGeometry args={[0.8, 0.55, 0.05]} />
         <meshStandardMaterial
-          color="#e8ff3a"
-          emissive="#e8ff3a"
+          color="#a7c957"
+          emissive="#a7c957"
           emissiveIntensity={0.45}
           roughness={0.4}
         />
@@ -47,17 +47,17 @@ function Pump({ progress }: { progress: RefObject<number> }) {
       {/* top cap */}
       <mesh position={[0, 2.55, 0]}>
         <boxGeometry args={[1.2, 0.25, 0.9]} />
-        <meshStandardMaterial color="#141a17" roughness={0.8} />
+        <meshStandardMaterial color="#131b16" roughness={0.8} />
       </mesh>
       {/* hose */}
       <mesh position={[0.7, 1.2, 0.2]} rotation={[0, 0, -0.5]}>
         <cylinderGeometry args={[0.06, 0.06, 1.6, 12]} />
-        <meshStandardMaterial color="#0a0e0c" roughness={1} />
+        <meshStandardMaterial color="#0a100d" roughness={1} />
       </mesh>
       {/* nozzle */}
       <mesh position={[1.05, 0.55, 0.2]} rotation={[0, 0, 0.3]}>
         <cylinderGeometry args={[0.07, 0.05, 0.4, 12]} />
-        <meshStandardMaterial color="#ff7a1a" roughness={0.5} metalness={0.3} />
+        <meshStandardMaterial color="#c96f43" roughness={0.5} metalness={0.3} />
       </mesh>
     </group>
   );
@@ -76,7 +76,7 @@ export default function FuelPumpScene({
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[4, 6, 3]} intensity={1.1} />
-      <directionalLight position={[-4, 2, -2]} intensity={0.3} color="#b8c4bd" />
+      <directionalLight position={[-4, 2, -2]} intensity={0.3} color="#b6c3c6" />
       <Suspense fallback={null}>
         <Float speed={1.2} rotationIntensity={0.15} floatIntensity={0.35}>
           <Pump progress={progress} />

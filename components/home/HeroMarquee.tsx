@@ -65,7 +65,7 @@ function Live() {
 
 function Dot() {
   return (
-    <span className="text-lime" aria-hidden>
+    <span className="text-moss" aria-hidden>
       ·
     </span>
   );

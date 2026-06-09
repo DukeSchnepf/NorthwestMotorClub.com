@@ -32,7 +32,7 @@ type Milestone = {
  *
  * Editing content: add/remove/reorder entries in content/timeline.json.
  * Mark a year as `placeholder: true` to render the dashed "confirm copy"
- * style, or `restart: true` for the rust accent + pulsing marker.
+ * style, or `restart: true` for the cedar accent + pulsing marker.
  */
 export default function StoryTimeline() {
   const root = useRef<HTMLElement>(null);
@@ -78,12 +78,12 @@ export default function StoryTimeline() {
       {/* Header */}
       <header className="absolute inset-x-0 top-0 z-10 flex flex-wrap items-end justify-between gap-4 px-6 pt-12 md:px-12 lg:px-16">
         <div>
-          <p className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-lime">
-            <span aria-hidden className="inline-block h-px w-7 bg-lime" />
+          <p className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-moss">
+            <span aria-hidden className="inline-block h-px w-7 bg-moss" />
             Timeline — drive through it
           </p>
           <h3 className="mt-3 font-display text-3xl font-normal leading-[1] tracking-[-0.02em] text-fg md:text-4xl lg:text-5xl">
-            From the <span className="italic text-lime">first lot</span> to
+            From the <span className="italic text-moss">first lot</span> to
             today&apos;s roster.
           </h3>
         </div>
@@ -92,14 +92,14 @@ export default function StoryTimeline() {
         </div>
       </header>
 
-      {/* The road — dashed lime line across the section. Sits in front of the
+      {/* The road — dashed moss line across the section. Sits in front of the
           panels but behind the mile markers. */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-24 z-[3] h-[2px] bg-dim"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(90deg, transparent 0, transparent 16px, var(--color-lime) 16px, var(--color-lime) 28px)",
+            "repeating-linear-gradient(90deg, transparent 0, transparent 16px, var(--color-moss) 16px, var(--color-moss) 28px)",
           opacity: 0.4,
         }}
       />
@@ -132,7 +132,7 @@ function YearPanel({ m }: { m: Milestone }) {
       <div
         className={`flex h-full flex-col overflow-hidden rounded-md border ${
           isRestart
-            ? "border-rust bg-gradient-to-b from-rust/[0.06] via-raised to-raised"
+            ? "border-cedar bg-gradient-to-b from-cedar/[0.06] via-raised to-raised"
             : isPlaceholder
               ? "border-dashed border-line bg-transparent"
               : "border-line bg-raised"
@@ -153,7 +153,7 @@ function YearPanel({ m }: { m: Milestone }) {
               <span
                 aria-hidden
                 className={`absolute top-3 left-3 font-display italic text-base ${
-                  isRestart ? "text-rust" : "text-lime"
+                  isRestart ? "text-cedar" : "text-moss"
                 } drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] -rotate-[3deg]`}
               >
                 — {m.imageTag}
@@ -176,7 +176,7 @@ function YearPanel({ m }: { m: Milestone }) {
         <div className="flex flex-1 flex-col gap-3 p-7">
           <div
             className={`font-mono text-[0.6rem] uppercase tracking-[0.3em] ${
-              isRestart ? "text-rust" : isPlaceholder ? "text-dim" : "text-lime"
+              isRestart ? "text-cedar" : isPlaceholder ? "text-dim" : "text-moss"
             }`}
           >
             — Chapter {m.chapter}
@@ -185,7 +185,7 @@ function YearPanel({ m }: { m: Milestone }) {
             id={`year-${m.year}`}
             className={`font-display text-6xl font-normal leading-[0.85] tracking-[-0.06em] md:text-7xl ${
               isRestart
-                ? "italic text-rust"
+                ? "italic text-cedar"
                 : isPlaceholder
                   ? "text-dim"
                   : "text-fg"
@@ -208,12 +208,12 @@ function YearPanel({ m }: { m: Milestone }) {
             {m.blurb}
           </p>
           {isPlaceholder && (
-            <span className="mt-1 inline-flex w-fit border border-dashed border-rust bg-rust/10 px-2 py-1 font-mono text-[0.55rem] uppercase tracking-[0.25em] text-rust">
+            <span className="mt-1 inline-flex w-fit border border-dashed border-cedar bg-cedar/10 px-2 py-1 font-mono text-[0.55rem] uppercase tracking-[0.25em] text-cedar">
               ◯ Confirm copy
             </span>
           )}
           {isRestart && (
-            <span className="mt-1 inline-flex w-fit border border-dashed border-lime bg-lime/10 px-2 py-1 font-mono text-[0.55rem] uppercase tracking-[0.25em] text-lime">
+            <span className="mt-1 inline-flex w-fit border border-dashed border-moss bg-moss/10 px-2 py-1 font-mono text-[0.55rem] uppercase tracking-[0.25em] text-moss">
               ◯ NOW · We&apos;re here
             </span>
           )}
@@ -225,7 +225,7 @@ function YearPanel({ m }: { m: Milestone }) {
         aria-hidden
         className={`absolute left-1/2 z-[4] -translate-x-1/2 rounded-full border-[3px] border-base ${
           isRestart
-            ? "h-[18px] w-[18px] bg-rust shadow-[0_0_24px_rgba(255,122,26,0.7)]"
+            ? "h-[18px] w-[18px] bg-cedar shadow-[0_0_24px_rgba(201,111,67,0.7)]"
             : isPlaceholder
               ? "h-[14px] w-[14px] bg-surface border-line"
               : "h-[14px] w-[14px] bg-dim"
