@@ -6,7 +6,7 @@ import { nextMeet, site } from "@/lib/site";
  * the hero on desktop and stacks below the headline on mobile.
  *
  * Reads `nextMeet` and `site` from lib/site.ts. When `nextMeet.status` is
- * "tba", surfaces a rust dashed placeholder badge so Duke knows exactly
+ * "tba", surfaces a cedar dashed placeholder badge so Duke knows exactly
  * where to wire real values.
  *
  * Optional frontmatter fields (start time, distance, confirmed count,
@@ -24,8 +24,8 @@ export default function NextBriefing() {
       });
 
   return (
-    <aside className="relative w-full max-w-md border border-line border-l-[3px] border-l-lime bg-base/75 px-6 py-5 backdrop-blur-md md:max-w-none">
-      <header className="flex items-center justify-between font-mono text-[0.6rem] uppercase tracking-[0.3em] text-lime">
+    <aside className="relative w-full max-w-md border border-line border-l-[3px] border-l-moss bg-base/75 px-6 py-5 backdrop-blur-md md:max-w-none">
+      <header className="flex items-center justify-between font-mono text-[0.6rem] uppercase tracking-[0.3em] text-moss">
         <span className="inline-flex items-center gap-1.5">
           <span className="status-dot" aria-hidden />
           Next Briefing
@@ -50,14 +50,14 @@ export default function NextBriefing() {
       </dl>
 
       {isTBA && (
-        <div className="mt-4 border border-dashed border-rust bg-rust/10 px-2 py-1.5 text-center font-mono text-[0.55rem] uppercase tracking-[0.2em] text-rust">
+        <div className="mt-4 border border-dashed border-cedar bg-cedar/10 px-2 py-1.5 text-center font-mono text-[0.55rem] uppercase tracking-[0.2em] text-cedar">
           ◯ Wire real meet · lib/site.ts
         </div>
       )}
 
       <Link
         href={nextMeet.href}
-        className="mt-4 inline-block w-full text-right font-mono text-[0.6rem] uppercase tracking-[0.2em] text-lime hover:underline"
+        className="mt-4 inline-block w-full text-right font-mono text-[0.6rem] uppercase tracking-[0.2em] text-moss hover:underline"
       >
         Full briefing →
       </Link>
@@ -80,7 +80,7 @@ function Field({
         {k}
       </dt>
       <dd
-        className={`mt-0.5 font-mono text-sm ${accent ? "text-lime" : "text-fg"}`}
+        className={`mt-0.5 font-mono text-sm ${accent ? "text-moss" : "text-fg"}`}
       >
         {v}
       </dd>

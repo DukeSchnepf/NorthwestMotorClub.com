@@ -27,7 +27,7 @@ export default function EventsBrowser({ events }: { events: EventMeta[] }) {
             onClick={() => setFilter(f)}
             className={`rounded-full border px-5 py-2 font-mono text-xs uppercase tracking-[0.15em] transition-colors duration-200 ${
               filter === f
-                ? "border-lime bg-lime text-ink"
+                ? "border-moss bg-moss text-ink"
                 : "border-line text-muted hover:border-fog hover:text-fg"
             }`}
           >

@@ -17,7 +17,7 @@ export default function AboutPage() {
       {/* Editorial split hero */}
       <section className="mx-auto grid max-w-content items-center gap-12 px-6 pb-20 pt-36 md:grid-cols-2 md:px-16 md:pb-28 md:pt-44">
         <Reveal className="flex flex-col gap-6">
-          <p className="font-mono text-sm uppercase tracking-[0.25em] text-lime">
+          <p className="font-mono text-sm uppercase tracking-[0.25em] text-moss">
             {site.region} · Est. {site.establishedYear}
           </p>
           <h1 className="font-display text-5xl text-fg max-md:text-4xl">
@@ -59,7 +59,7 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                 </div>
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-lime">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-moss">
                   {f.role}
                 </p>
                 <h3 className="mt-2 font-display text-xl text-fg">{f.name}</h3>

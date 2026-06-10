@@ -34,7 +34,7 @@ export default function EventCard({ event }: { event: EventMeta }) {
       href={`/events/${event.slug}`}
       className="group relative block overflow-hidden border border-line bg-raised"
     >
-      <span className="absolute left-0 top-0 z-20 h-full w-px origin-top scale-y-0 bg-lime transition-transform duration-300 ease-exit group-hover:scale-y-100" />
+      <span className="absolute left-0 top-0 z-20 h-full w-px origin-top scale-y-0 bg-moss transition-transform duration-300 ease-exit group-hover:scale-y-100" />
 
       <div ref={ref} className="relative aspect-[16/10] overflow-hidden">
         <motion.div style={{ y }} className="absolute inset-[-7%]">
@@ -46,7 +46,7 @@ export default function EventCard({ event }: { event: EventMeta }) {
             className="object-cover transition-transform duration-500 ease-exit group-hover:scale-[1.04]"
           />
         </motion.div>
-        <span className="absolute left-4 top-4 z-10 flex flex-col items-center bg-base/85 px-3 py-2 font-mono text-xs leading-tight text-lime backdrop-blur-sm">
+        <span className="absolute left-4 top-4 z-10 flex flex-col items-center bg-base/85 px-3 py-2 font-mono text-xs leading-tight text-moss backdrop-blur-sm">
           <span className="tracking-[0.2em]">{month}</span>
           <span className="text-base text-fg">{day}</span>
         </span>
@@ -62,7 +62,7 @@ export default function EventCard({ event }: { event: EventMeta }) {
           ~{event.attendees} expected
           <span
             aria-hidden
-            className="text-lime transition-transform duration-200 ease-exit group-hover:translate-x-1"
+            className="text-moss transition-transform duration-200 ease-exit group-hover:translate-x-1"
           >
             →
           </span>

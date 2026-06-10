@@ -21,7 +21,7 @@ export default function ContactForm() {
         role="status"
         className="flex flex-col items-center gap-4 border border-line bg-raised px-8 py-12 text-center"
       >
-        <span className="check-pop flex h-14 w-14 items-center justify-center rounded-full bg-lime text-xl text-ink">
+        <span className="check-pop flex h-14 w-14 items-center justify-center rounded-full bg-moss text-xl text-ink">
           ✓
         </span>
         <p className="font-display text-2xl text-fg">Message sent</p>
@@ -68,7 +68,7 @@ export default function ContactForm() {
                 rows={5}
                 aria-invalid={!!err}
                 aria-describedby={err ? `c-${f.name}-error` : undefined}
-                className="border border-line bg-base px-4 py-3 text-fg outline-none placeholder:text-dim focus-visible:border-lime"
+                className="border border-line bg-base px-4 py-3 text-fg outline-none placeholder:text-dim focus-visible:border-moss"
                 {...register(f.name)}
               />
             ) : (
@@ -77,7 +77,7 @@ export default function ContactForm() {
                 type={f.type ?? "text"}
                 aria-invalid={!!err}
                 aria-describedby={err ? `c-${f.name}-error` : undefined}
-                className="border border-line bg-base px-4 py-3 text-fg outline-none placeholder:text-dim focus-visible:border-lime"
+                className="border border-line bg-base px-4 py-3 text-fg outline-none placeholder:text-dim focus-visible:border-moss"
                 {...register(f.name)}
               />
             )}
@@ -85,7 +85,7 @@ export default function ContactForm() {
               <p
                 id={`c-${f.name}-error`}
                 role="alert"
-                className="font-mono text-xs text-rust"
+                className="font-mono text-xs text-cedar"
               >
                 {err}
               </p>
@@ -95,7 +95,7 @@ export default function ContactForm() {
       })}
 
       {serverError && (
-        <p role="alert" aria-live="polite" className="font-mono text-xs text-rust">
+        <p role="alert" aria-live="polite" className="font-mono text-xs text-cedar">
           {serverError}
         </p>
       )}
@@ -103,7 +103,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-2 self-start rounded-full bg-lime px-8 py-3.5 font-mono text-sm font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-200 ease-exit hover:scale-105 disabled:opacity-60"
+        className="mt-2 self-start rounded-full bg-moss px-8 py-3.5 font-mono text-sm font-semibold uppercase tracking-[0.15em] text-ink transition-transform duration-200 ease-exit hover:scale-105 disabled:opacity-60"
       >
         {isSubmitting ? "Sending…" : "Send"}
       </button>

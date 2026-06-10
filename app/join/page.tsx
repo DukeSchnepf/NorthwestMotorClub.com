@@ -12,7 +12,7 @@ export default function JoinPage() {
     <>
       <section className="mx-auto max-w-content px-6 pb-24 pt-36 md:px-16 md:pb-32 md:pt-44">
         <div className="mx-auto max-w-2xl">
-          <p className="font-mono text-sm uppercase tracking-[0.25em] text-lime">
+          <p className="font-mono text-sm uppercase tracking-[0.25em] text-moss">
             Open Membership
           </p>
           <h1 className="mt-4 font-display text-5xl text-fg max-md:text-4xl">

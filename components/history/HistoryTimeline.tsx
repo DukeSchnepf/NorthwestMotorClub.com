@@ -84,7 +84,7 @@ export default function HistoryTimeline({
           >
             <p
               className={`font-display text-5xl transition-colors duration-300 max-md:text-4xl ${
-                i === active ? "text-lime" : "text-dim"
+                i === active ? "text-moss" : "text-dim"
               }`}
             >
               {m.year}
@@ -121,7 +121,7 @@ export default function HistoryTimeline({
               className="object-cover"
             />
           )}
-          <p className="absolute bottom-4 left-4 font-mono text-xs uppercase tracking-[0.2em] text-lime">
+          <p className="absolute bottom-4 left-4 font-mono text-xs uppercase tracking-[0.2em] text-moss">
             {milestones[active]?.year} · {milestones[active]?.title}
           </p>
         </div>

@@ -2,23 +2,23 @@
 
 /* ============================================================
    NWMC DESIGN SYSTEM  —  Pacific Northwest editorial automotive
-   Cascade fog · wet asphalt · evergreen · single confident accent
+   Cascade fog · wet asphalt · evergreen · moss + cedar accents
    ============================================================ */
 
 @theme {
   /* ---- Color tokens ---------------------------------------- */
-  --color-base: #0a0e0c; /* near-black, mossy undertone */
-  --color-raised: #141a17;
-  --color-surface: #1c2420;
+  --color-base: #0a100d; /* near-black, evergreen undertone */
+  --color-raised: #131b16;
+  --color-surface: #1b2620;
   --color-warm: #1a1815; /* warm dark surface — one tier off green-near-black; used for editorial breakouts (story open, drives, manifesto callouts) */
-  --color-line: #2a332e; /* borders */
+  --color-line: #2b362f; /* borders */
   --color-fg: #e8ede9; /* text.primary */
   --color-muted: #8a938e; /* text.muted */
   --color-dim: #5a635e; /* text.dim */
-  --color-lime: #e8ff3a; /* primary accent */
-  --color-rust: #ff7a1a; /* secondary accent */
-  --color-fog: #b8c4bd; /* neutral accent */
-  --color-ink: #0a0e0c; /* dark text on lime/fog/rust (text-base collides with the font-size scale) */
+  --color-moss: #a7c957; /* primary accent — wet moss / lichen */
+  --color-cedar: #c96f43; /* secondary accent — western redcedar bark */
+  --color-fog: #b6c3c6; /* neutral accent — marine-layer blue-gray */
+  --color-ink: #0a100d; /* dark text on moss/fog/cedar (text-base collides with the font-size scale) */
 
   /* ---- Type families --------------------------------------- */
   --font-display: var(--font-fraunces);
@@ -64,13 +64,13 @@
   }
 
   ::selection {
-    background-color: var(--color-lime);
+    background-color: var(--color-moss);
     color: var(--color-base);
   }
 
-  /* Visible focus ring — lime, 2px offset */
+  /* Visible focus ring — moss, 2px offset */
   :focus-visible {
-    outline: 2px solid var(--color-lime);
+    outline: 2px solid var(--color-moss);
     outline-offset: 2px;
     border-radius: 2px;
   }
@@ -96,7 +96,7 @@
   top: -3rem;
   z-index: 100;
   padding: 0.625rem 1rem;
-  background-color: var(--color-lime);
+  background-color: var(--color-moss);
   color: var(--color-base);
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: var(--text-sm);
@@ -136,16 +136,16 @@
   }
 }
 
-/* "Live" status dot — pulsing rust circle.
+/* "Live" status dot — pulsing cedar circle.
    Used in: SiteHeader status pill, Hero dispatch card, Drives "live" indicators,
    Footer marquee live cues. Default 6px, can be overridden with --status-size. */
 .status-dot {
   display: inline-block;
   width: var(--status-size, 6px);
   height: var(--status-size, 6px);
-  background-color: var(--color-rust);
+  background-color: var(--color-cedar);
   border-radius: 9999px;
-  box-shadow: 0 0 10px var(--color-rust);
+  box-shadow: 0 0 10px var(--color-cedar);
   animation: status-blink 1.6s ease-in-out infinite;
 }
 @keyframes status-blink {

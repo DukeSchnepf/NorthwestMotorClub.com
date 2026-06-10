@@ -34,7 +34,7 @@ export default function MembersBrowser({
             onClick={() => setActive(c)}
             className={`rounded-full border px-5 py-2 font-mono text-xs uppercase tracking-[0.15em] transition-colors duration-200 ${
               active === c
-                ? "border-lime bg-lime text-ink"
+                ? "border-moss bg-moss text-ink"
                 : "border-line text-muted hover:border-fog hover:text-fg"
             }`}
           >
@@ -61,7 +61,7 @@ export default function MembersBrowser({
                     sizes="(max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 ease-exit group-hover:scale-[1.04]"
                   />
-                  <span className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-base/80 px-4 py-3 font-mono text-xs uppercase tracking-wider text-lime opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+                  <span className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-base/80 px-4 py-3 font-mono text-xs uppercase tracking-wider text-moss opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                     View build
                     <span aria-hidden>→</span>
                   </span>

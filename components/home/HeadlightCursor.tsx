@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 
 /**
- * Lime "headlight" beam + custom cursor ring that follow the mouse over the
+ * Moss "headlight" beam + custom cursor ring that follow the mouse over the
  * parent element. Designed for the Hero section — mounts inside it, listens
  * to the parent's pointer events, and disables itself on touch devices or
  * when prefers-reduced-motion is set.
@@ -11,21 +12,21 @@ import { useEffect, useRef, useState } from "react";
  * Positioning: both elements are absolutely positioned relative to the
  * parent. The parent should be `position: relative`.
  *
- * On enter/leave we hide the native cursor on the parent so the lime ring
+ * On enter/leave we hide the native cursor on the parent so the moss ring
  * is the only visible pointer; on leave we restore it so other sections
  * behave normally.
  */
 export default function HeadlightCursor() {
   const beamRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-  const [enabled, setEnabled] = useState(false);
+  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)", true);
+  const touch = useMediaQuery("(hover: none)", true);
+  const enabled = !reducedMotion && !touch;
 
+  // Runs once `enabled` flips true — by then the beam/ring divs are in the
+  // DOM, so the parent lookup below resolves.
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (window.matchMedia("(hover: none)").matches) return; // touch device
-
-    setEnabled(true);
+    if (!enabled) return;
 
     // The parent element controls our coordinate space.
     const parent = beamRef.current?.parentElement;
@@ -87,7 +88,7 @@ export default function HeadlightCursor() {
       parent.removeEventListener("mousemove", onMove);
       parent.style.cursor = "";
     };
-  }, []);
+  }, [enabled]);
 
   if (!enabled) return null;
 
@@ -99,15 +100,15 @@ export default function HeadlightCursor() {
         className="pointer-events-none absolute z-[6] h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 opacity-0 mix-blend-screen transition-opacity duration-200"
         style={{
           background:
-            "radial-gradient(circle at center, rgba(232,255,58,0.22) 0%, rgba(232,255,58,0.08) 30%, transparent 65%)",
+            "radial-gradient(circle at center, rgba(167,201,87,0.22) 0%, rgba(167,201,87,0.08) 30%, transparent 65%)",
         }}
       />
       <div
         ref={ringRef}
         aria-hidden
-        className="pointer-events-none absolute z-[30] h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-[1.5px] border-lime opacity-0 shadow-[0_0_14px_rgba(232,255,58,0.4)] transition-opacity duration-150"
+        className="pointer-events-none absolute z-[30] h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-[1.5px] border-moss opacity-0 shadow-[0_0_14px_rgba(167,201,87,0.4)] transition-opacity duration-150"
       >
-        <div className="absolute inset-[11px] rounded-full bg-lime" />
+        <div className="absolute inset-[11px] rounded-full bg-moss" />
       </div>
     </>
   );

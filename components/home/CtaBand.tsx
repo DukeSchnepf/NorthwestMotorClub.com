@@ -7,7 +7,7 @@ import { nextMeet } from "@/lib/site";
  *
  * Composition: full-bleed fleet-garage.jpg at low opacity with a dual
  * gradient mask so the photo reads as atmosphere, a centered eyebrow with
- * lime hairlines, a massive Fraunces statement, two CTAs (Join + RSVP
+ * moss hairlines, a massive Fraunces statement, two CTAs (Join + RSVP
  * next), and a meet info strip at the bottom.
  *
  * Used once at the bottom of the home page. Subpages get a lighter
@@ -51,14 +51,14 @@ export default function CtaBand() {
       />
 
       <div className="relative mx-auto max-w-content px-6 py-28 text-center md:px-16">
-        <p className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-lime">
-          <span aria-hidden className="inline-block h-px w-6 bg-lime" />
+        <p className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.4em] text-moss">
+          <span aria-hidden className="inline-block h-px w-6 bg-moss" />
           Section 06 / Final call
-          <span aria-hidden className="inline-block h-px w-6 bg-lime" />
+          <span aria-hidden className="inline-block h-px w-6 bg-moss" />
         </p>
 
         <h2 className="mt-6 font-display text-5xl font-normal leading-[0.92] tracking-[-0.04em] text-fg md:text-7xl lg:text-[7rem]">
-          Bring the <span className="italic text-lime">car</span>
+          Bring the <span className="italic text-moss">car</span>
           <br />
           you have.
         </h2>
@@ -71,13 +71,13 @@ export default function CtaBand() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/join"
-            className="rounded-full bg-lime px-7 py-3.5 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-ink transition-transform duration-200 ease-exit hover:scale-105"
+            className="rounded-full bg-moss px-7 py-3.5 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-ink transition-transform duration-200 ease-exit hover:scale-105"
           >
             Join the Club →
           </Link>
           <Link
             href="/events"
-            className="rounded-full border border-fog/60 px-7 py-3.5 font-mono text-sm uppercase tracking-[0.18em] text-fg transition-colors duration-200 ease-exit hover:border-lime hover:text-lime"
+            className="rounded-full border border-fog/60 px-7 py-3.5 font-mono text-sm uppercase tracking-[0.18em] text-fg transition-colors duration-200 ease-exit hover:border-moss hover:text-moss"
           >
             RSVP next drive
           </Link>
@@ -85,7 +85,7 @@ export default function CtaBand() {
 
         {/* Meet info strip */}
         <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-line pt-6 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-muted">
-          <span className="inline-flex items-center gap-2 text-rust">
+          <span className="inline-flex items-center gap-2 text-cedar">
             <span className="status-dot" aria-hidden />
             Live
           </span>
@@ -105,7 +105,7 @@ export default function CtaBand() {
 
 function Dot() {
   return (
-    <span className="text-lime" aria-hidden>
+    <span className="text-moss" aria-hidden>
       ·
     </span>
   );
